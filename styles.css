@@ -5,3 +5,100 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+nav {
+    padding: 20px 20px;
+    max-width: 100%;
+}
+
+li {
+    
+}
+
+/* NAVIGATION */
+
+.navbar {
+    
+}
+
+.links {
+    color: #800000;
+    font-size: 18px
+}
+
+.link {
+    
+}
+
+li form {
+    position: relative;
+}
+
+
+.fancy-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fancy-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+
+.fancy-list li::before {
+    content: "🎬";
+    position: absolute;
+    left: 0;
+}
+
+.movies-series,
+li {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: 10px;
+}
+
+.search-form {
+    position: relative;
+}
+
+.search-input {
+    padding-left: 34px;
+    font-size: 14px;
+    height: 30px;
+    border: 2px solid #8B0000;
+    border-radius: 50px;
+    outline: none;
+    width: 195px;
+}
+
+.search-form::before {
+    font-family: "Font Awesome 6 Free";
+    content: "\f002";
+    font-weight: 900;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 18px;
+    color: black;
+}
+
+.search-input:focus {
+    border-color: #FFC300;
+    box-shadow: 0 0 5px #FFC300;
+}
+
+.search-input::before {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events:none;
+}
