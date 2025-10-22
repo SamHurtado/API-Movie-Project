@@ -6,7 +6,12 @@
     box-sizing: border-box;
 }
 
+/* VIDEO */
+
 .video-background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -64,6 +69,8 @@
     color: #FFD700;
 }
 
+/* SEARCH */
+
 .content {
     position: relative;
     text-align: center;
@@ -114,26 +121,66 @@
     color: white;
 }
 
+
 .movie-card {
-    background: rgba(0,0,0, 0.6);
-    border: 2px solid #FFD700;
-    border-radius: 15px;
-    overflow: hidden;
-    width: 180px;
-    text-align: center;
-    padding-bottom: 10px;
     box-shadow: 0 0 10px #FFD70050;
-    transition: transform 0.3s;
+    transition: transform 0.5s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    height: 270px;
+    overflow: hidden;
+    border: 4px solid gold;
+    border-radius: 5px;
+    margin: 10px;
 }
 
 .movie-card:hover {
     transform: scale(1.05);
 }
 
+.movie-card .overlay {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.85);
+    color: white;
+    padding: 10px 5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.movie-card .overlay h3,
+.movie-card .overlay p {
+    margin: 0;
+}
+
+.movie-card:hover .overlay {
+    background-color: rgba(0,0,0,0.95);
+    cursor: pointer;
+    bottom: 0;
+}
+
+.movie-card h3 {
+    padding: 5px 10px;
+    display: inline-block;
+    border-radius: 3px;
+}
+
 .movie-card img {
     width: 100%;
-    height: 270px;
+    height: 100%;
     object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+.movie-card:hover img {
+    transform: scale(1.05);
+    cursor: pointer;
 }
 
 .movie-card h3 {
@@ -144,4 +191,55 @@
 .movie-card p {
     font-size: 14px;
     color: #ccc;
+}
+
+/* RECENT MOVIES */
+
+#recent-movies {
+    background-color: #111;
+    padding: 20px;
+    color: gold;
+}
+
+#recent-movies h2 {
+    margin-bottom: 10px;
+}
+
+.movie-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 10px;
+    scroll-behavior: smooth;
+}
+
+.movie-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.movie-scroll::-webkit-scrollbar-thumb {
+    background: gold;
+    border-radius: 4px;
+}
+
+.movie-card--scroll {
+    min-width: 180px;
+    height: 270px;
+    border: 2px solid gold;
+    border-radius: 5px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    transition: transform 0.3s;
+}
+
+.movie-card--scroll img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.movie-card--scroll:hover {
+    transform: scale(1.05);
+    cursor: pointer;
 }

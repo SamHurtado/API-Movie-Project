@@ -21,21 +21,29 @@
     </div>
 
     <nav class="navbar">
-        <ul>
+        <ul class="projected-links">
             <li><a href="#">ReelFilms</a></li>
-            <li><a href="#">Movies</a></li>
+            <li><a href="movies.html" id="moviesLink">Movies</a></li>
             <li><a href="#">Series</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">Episodes</a></li>
+            <li><a href="#">By Release Date</a></li>
         </ul>
     </nav>
 
     <section class="content">
         <h1>Welcome to ReelFilms</h1>
-        <form class="search-form" onsubmit="return flase;">
+        <form class="search-form" onsubmit="return false;">
             <input id="searchInput" class="search-input" type="text" placeholder="Search Movies or TV Shows">
         </form>
         <div id="movieResults" class="movie-results"></div>
     </section>
 
+    <section id="recent-movies">
+        <h2>Recent Movies</h2>
+        <div class="movie-scroll">
+
+        </div>
+    </section>
+<script src="app.js"></script>
 </body>
 </html>
