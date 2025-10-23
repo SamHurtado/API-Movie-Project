@@ -126,7 +126,20 @@ async function fetchMovies(query) {
 });
 
 function displayMovies(movies) {
-    movieResults.innerHTML = movies.map(movie => `
+    if (!movies || movies.length === 0) {
+        movieResults.innerHTML = "";
+        movieResults.style.display = "none";
+        return;
+    }
+
+    movieResults.style.display = "flex";
+
+    const containerWidth = movieResults.clientWidth;
+    const cardWidth = 180 + 20;
+    const maxCards = Math.floor(containerWidth / cardWidth);
+    const moviesToShow = movies.slice(0, maxCards);
+
+    movieResults.innerHTML = moviesToShow.map(movie => `
         <div class="movie-card">
             <img 
                 src="${movie.Poster !== "N/A" ? movie.Poster : 'https://via.placeholder.com/180x270?text=No+Image'}" 
