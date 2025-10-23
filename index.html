@@ -25,7 +25,6 @@
             <li><a href="#">ReelFilms</a></li>
             <li><a href="movies.html" id="moviesLink">Movies</a></li>
             <li><a href="#">Series</a></li>
-            <li><a href="#">Episodes</a></li>
             <li><a href="#">By Release Date</a></li>
         </ul>
     </nav>
@@ -40,10 +39,24 @@
 
     <section id="recent-movies">
         <h2>Recent Movies</h2>
-        <div class="movie-scroll">
+        <div class="carousel">
+            <button class="arrow left">&#10094;</button>
+            <div class="movie-scroll-wrapper">
+                <div id="recentMovies" class="movie-scroll">
 
+                </div>
+            </div>
+            <button class="arrow right">&#10095;</button>
         </div>
     </section>
+
+    <section class="recent-series">
+        <h2>Recent Series</h2>
+        <div class="series-scroll">
+            
+        </div>
+    </section>
+    
 <script src="app.js"></script>
 </body>
 </html>

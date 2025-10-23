@@ -1,11 +1,60 @@
 const searchInput = document.getElementById("searchInput");
 const movieResults = document.getElementById("movieResults");
 const moviesLink = document.getElementById("moviesLink");
-const recentContainer = document. querySelector(".movie-scroll");
-
+const recentContainer = document.querySelector(".movie-scroll");
+const leftArrow = document.querySelector(".arrow.left");
+const rightArrow = document.querySelector(".arrow.right");
+const scrollWrapper = document.querySelector(".movie-scroll-wrapper");
+const seriesContainer = document.querySelector(".series-scroll");
+const scrollAmount = 200;
 const API_KEY = "39b36fc3";
-
+let allSeries = []
+let allMovies = [];
 let filterType = "";
+let scrollPosition = 0;
+
+
+async function fetchRecentSeries(year = 2024) {
+    const queries = ["a", "the", "love", "man"];
+    seriesContainer.innerHTML = "";
+
+    for (let q of queries) {
+    const url = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${encodeURIComponent(q)}&y=${year}&type=series`;
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      if (data.Response === "True") {
+        allSeries = allSeries.concat(data.Search);
+        allSeries = removeDuplicates(allSeries);
+      }
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+displayRecentSeries(allSeries);
+}
+
+function removeDuplicates(arr) {
+    const seen = new Set();
+    return arr.filter(item => {
+        if (seen.has(item.imdbID)) return false;
+        seen.add(item.imdbID);
+        return true;
+    })
+}
+
+function displayRecentSeries(series) {
+    series.forEach(show => {
+        const card = document.createElement("div");
+        card.classList.add("series-card--scroll");
+        card.innerHTML = `
+        <img src="${show.Poster !== "N/A" ? show.Poster : 'https://via.placeholder.com/180x270?text=No+Image'}" alt="${show.Title}">
+    `;
+        seriesContainer.appendChild(card);
+    });
+}
+fetchRecentSeries();
 
 async function fetchRecentMovies(year = 2024) {
     const queries = ["a", "the", "love", "man"];
@@ -17,12 +66,15 @@ async function fetchRecentMovies(year = 2024) {
             const res = await fetch(url);
             const data = await res.json();
             if (data.Response === "True") {
-                displayRecentMovies(data.Search);
+                allMovies = allMovies.concat(data.Search);
+                allMovies = removeDuplicates(allMovies);
             }
             } catch (err) {
                 console.error(err);
             }
         }
+
+        displayRecentMovies(allMovies);
     }
 
     function displayRecentMovies(movies) {
@@ -36,6 +88,14 @@ async function fetchRecentMovies(year = 2024) {
         recentContainer.appendChild(card);
         });
     }
+
+    leftArrow.addEventListener("click", () => {
+        scrollWrapper.scrollBy({left: -scrollAmount, behavior: 'smooth' })
+    });
+    rightArrow.addEventListener("click", () => {
+        scrollWrapper.scrollBy({left: scrollAmount, behavior: 'smooth' });
+    });
+
     fetchRecentMovies();
 
 
