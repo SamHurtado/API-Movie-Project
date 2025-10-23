@@ -9,8 +9,16 @@
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
 </head>
 <body>
+    <nav class="navbar">
+        <ul class="projected-links">
+            <li class="left-link"><a href="#">ReelFilms <img class="film-reel--img" src="./Assets/Capture.PNG" alt=""></a></li>
+            <li><a href="movies.html" id="moviesLink">Movies</a></li>
+            <li><a href="#">Series</a></li>
+            <li><a href="#">By Release Date</a></li>
+        </ul>
+    </nav>
 
-    <div class="video-background">
+    <section class="video-background">
          <iframe 
             src="https://www.youtube.com/embed/QBX8NZpBbd0?autoplay=1&mute=1&loop=1&playlist=QBX8NZpBbd0&controls=0&modestbranding=1&showinfo=0&vq=hd1080"
             frameborder="0" 
@@ -18,17 +26,9 @@
              allowfullscreen>
         </iframe>
         <div class="overlay"></div>
-    </div>
+    </section>
 
-    <nav class="navbar">
-        <ul class="projected-links">
-            <li><a href="#">ReelFilms</a></li>
-            <li><a href="movies.html" id="moviesLink">Movies</a></li>
-            <li><a href="#">Series</a></li>
-            <li><a href="#">By Release Date</a></li>
-        </ul>
-    </nav>
-
+    
     <section class="content">
         <h1>Welcome to ReelFilms</h1>
         <form class="search-form" onsubmit="return false;">
@@ -36,7 +36,7 @@
         </form>
         <div id="movieResults" class="movie-results"></div>
     </section>
-
+    
     <section id="recent-movies">
         <h2>Recent Movies</h2>
         <div class="carousel">
