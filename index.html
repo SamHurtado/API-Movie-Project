@@ -9,31 +9,38 @@
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
 </head>
 <body>
+
     <nav class="navbar">
         <ul class="projected-links">
             <li class="left-link"><a href="#">ReelFilms <img class="film-reel--img" src="./Assets/Capture.PNG" alt=""></a></li>
-            <li><a href="movies.html" id="moviesLink">Movies</a></li>
-            <li><a href="#">Series</a></li>
-            <li><a href="#">By Release Date</a></li>
-             <section class="content">
-        <form class="search-form" onsubmit="return false;">
-            <input id="searchInput" class="search-input" type="text" placeholder="Search Movies or TV Shows">
-        </form>
-        <div id="movieResults" class="movie-results"></div>
-    </section>
+            <li><a href="#recent-movies">Movies</a></li>
+            <li><a href="#Recent-series">Series</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
     </nav>
-
+    
+    <section class="content">
+        <div class="search-wrapper">
+            <img class="popcorn-img" src="./Assets/Popcorn pic.PNG" alt="Popcorn">
+            <form class="search-form" onsubmit="return false;">
+                <input id="searchInput" class="search-input" type="text" placeholder="Search Movies or TV Shows">
+            </form>
+        </div>
+<div id="movieResults" class="movie-results"></div>
+</section>
    
 
     <section class="video-background">
-         <iframe 
-            src="https://www.youtube.com/embed/QBX8NZpBbd0?autoplay=1&mute=1&loop=1&playlist=QBX8NZpBbd0&controls=0&modestbranding=1&showinfo=0&vq=hd1080"
-            frameborder="0" 
-            allow="autoplay; fullscreen; encrypted-media; picture-in-picture" 
-             allowfullscreen>
-        </iframe>
-        <div class="overlay"></div>
+        <iframe 
+        src="https://www.youtube.com/embed/QBX8NZpBbd0?autoplay=1&mute=1&loop=1&playlist=QBX8NZpBbd0&controls=0&modestbranding=1&showinfo=0&vq=hd1080"
+        frameborder="0" 
+        allow="autoplay; fullscreen; encrypted-media; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+    <div class="overlay">
+
+        <img class="theater-seats" src="./Assets/10.PNG" alt="Theater Seats">
+    </div>
     </section>
 
     
@@ -52,13 +59,12 @@
         </div>
     </section>
 
-    <section class="recent-series">
+    <section id="Recent-series" class="recent-series">
         <h2>Recent Series</h2>
         <div class="series-scroll">
             
         </div>
     </section>
     
-<script src="app.js"></script>
 </body>
 </html>

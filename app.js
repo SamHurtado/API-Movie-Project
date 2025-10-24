@@ -14,7 +14,7 @@ let filterType = "";
 let scrollPosition = 0;
 
 
-async function fetchRecentSeries(year = 2024) {
+async function fetchRecentSeries(year = 2025) {
     const queries = ["a", "the", "love", "man"];
     seriesContainer.innerHTML = "";
 
@@ -56,7 +56,7 @@ function displayRecentSeries(series) {
 }
 fetchRecentSeries();
 
-async function fetchRecentMovies(year = 2024) {
+async function fetchRecentMovies(year = 2025) {
     const queries = ["a", "the", "love", "man"];
     recentContainer.innerHTML = "";
 
@@ -98,34 +98,44 @@ async function fetchRecentMovies(year = 2024) {
 
     fetchRecentMovies();
 
-
-searchInput.addEventListener("input", async () => {
-    const query = searchInput.value.trim();
-
 async function fetchMovies(query) {
-    if (query.length < 3) 
-        movieResults.innerHTML = "";
-        return;
+  console.log("Searching for:", query);
+
+  if (query.length < 3) {
+    movieResults.innerHTML = "";
+    movieResults.style.display = "none";
+    return;
+  }
+
+  const url = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${encodeURIComponent(query)}`;
+  console.log("Fetching URL:", url);
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log("API response:", data);
+
+    if (data.Response === "True" && data.Search && data.Search.length > 0) {
+      displayMovies(data.Search);
+    } else {
+      movieResults.innerHTML = "<p>No results found.</p>";
+      movieResults.style.display = "block";
     }
+  } catch (error) {
+    console.error("Error fetching movies:", error);
+    movieResults.innerHTML = "<p>Error fetching movies.</p>";
+  }
+}
 
-    const url = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${encodeURIComponent(query)}`;
 
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
-
-        if (data.Response === "True") {
-            displayMovies(data.Search);
-        } else {
-            movieResults.innerHTML = `<p>No movies found.</p>`;
-        }
-    } catch (error) {
-        console.error(error);
-        movieResults.innerHTML = `<p>Error fetching movies.</p>`;
-    }
+searchInput.addEventListener("input", () => {
+    const query = searchInput.value.trim();
+    fetchMovies(query);
 });
 
+
 function displayMovies(movies) {
+    console.log("displayMovies running:", movies);
     if (!movies || movies.length === 0) {
         movieResults.innerHTML = "";
         movieResults.style.display = "none";
@@ -152,12 +162,6 @@ function displayMovies(movies) {
     `).join("");
 }
 
-
-
-searchInput.addEventListener("input", () => {
-    const query = searchInput.value.trim();
-    fetchMovies(query);
-});
 
 moviesLink.addEventListener("click", (e) => {
     e.preventDefault();
