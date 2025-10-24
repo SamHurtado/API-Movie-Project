@@ -15,8 +15,16 @@
             <li><a href="movies.html" id="moviesLink">Movies</a></li>
             <li><a href="#">Series</a></li>
             <li><a href="#">By Release Date</a></li>
+             <section class="content">
+        <form class="search-form" onsubmit="return false;">
+            <input id="searchInput" class="search-input" type="text" placeholder="Search Movies or TV Shows">
+        </form>
+        <div id="movieResults" class="movie-results"></div>
+    </section>
         </ul>
     </nav>
+
+   
 
     <section class="video-background">
          <iframe 
@@ -29,13 +37,7 @@
     </section>
 
     
-    <section class="content">
-        <h1>Welcome to ReelFilms</h1>
-        <form class="search-form" onsubmit="return false;">
-            <input id="searchInput" class="search-input" type="text" placeholder="Search Movies or TV Shows">
-        </form>
-        <div id="movieResults" class="movie-results"></div>
-    </section>
+
     
     <section id="recent-movies">
         <h2>Recent Movies</h2>

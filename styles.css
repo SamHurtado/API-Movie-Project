@@ -34,10 +34,9 @@
     height: 80px;
     display: flex;
     justify-content: center;
-    padding: 20px 40px;
+    padding: 0 20px;
     z-index: 10;
     background-color: black;
-
 }
 
 .navbar ul {
@@ -60,6 +59,8 @@
     transition: color 0.3s;
     font-size: 24px;
     transition: text-shadow 0.3s, color 0.3s;
+    position: relative;
+    top: 20px;
 }
 
 .navbar a:hover {
@@ -77,6 +78,8 @@
 .navbar ul .left-link a {
     font-size: 45px;
     color: white;
+    position: none;
+    top: 0;
 }
 
 .film-reel--img {
@@ -97,9 +100,10 @@
 .content {
     position: relative;
     text-align: center;
-    margin-top: 150px;
     color: white;
-    padding-bottom: 175px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
 }
 
 .search-form {
