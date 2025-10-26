@@ -93,6 +93,14 @@ h2 {
     text-decoration: none;
 }
 
+.off-screen-menu .contact-link a {
+    cursor: not-allowed;
+}
+
+.contact-link::after {
+    display: none;
+}
+
 .off-screen-menu a::after {
     content: "";
     position: absolute;
@@ -216,7 +224,6 @@ h2 {
 
 .contact-link {
     cursor: not-allowed;
-    pointer-events: none;
 }
 
 .burger-menu {
@@ -553,6 +560,10 @@ h2 {
   box-shadow: 0 0 6px white, 0 0 6px white, 0 0 6px white;
   border-color: white;
   z-index: 10;
+}
+
+.contact-link {
+    cursor: not-allowed;
 }
 
 @media (max-width: 770px) {
