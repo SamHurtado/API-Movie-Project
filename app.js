@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!navLinks.contains(e.target) && !burgerMenu.contains(e.target)) {
             navLinks.classList.remove("show");
         }
+        console.log(burgerMenu)
     });
 });
 
