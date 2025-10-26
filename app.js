@@ -20,6 +20,28 @@ hamMenu.addEventListener('click', () => {
     offScreenMenu.classList.toggle('active');
 })
 
+document.addEventListener("DOMContentLoaded", () => {
+    const burgerMenu = document.querySelector(".burger-menu");
+    const navLinks = document.querySelector(".projected-links");
+
+    burgerMenu.addEventListener("click", (e) => {
+        e.stopPropagation();
+        navLinks.classList.toggle("show");
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("show");
+        });
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!navLinks.contains(e.target) && !burgerMenu.contains(e.target)) {
+            navLinks.classList.remove("show");
+        }
+    });
+});
+
 
 async function fetchRecentSeries(year = 2025) {
     const queries = ["a", "the", "love", "man"];

@@ -570,7 +570,9 @@ h2 {
     .hamburger-menu {
         display: block;
         order: 2;
+        z-index: 1000;
     }
+    
 
     .right-link {
         display: none;
