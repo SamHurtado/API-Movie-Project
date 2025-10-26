@@ -1,6 +1,5 @@
 const searchInput = document.getElementById("searchInput");
 const movieResults = document.getElementById("movieResults");
-const moviesLink = document.getElementById("moviesLink");
 const recentContainer = document.querySelector(".movie-scroll");
 const leftArrow = document.querySelector(".arrow.left");
 const rightArrow = document.querySelector(".arrow.right");
@@ -21,7 +20,7 @@ hamMenu.addEventListener('click', () => {
 })
 
 document.addEventListener("DOMContentLoaded", () => {
-    const burgerMenu = document.querySelector(".burger-menu");
+    const burgerMenu = document.querySelector(".hamburger-menu");
     const navLinks = document.querySelector(".projected-links");
 
     burgerMenu.addEventListener("click", (e) => {
@@ -192,7 +191,7 @@ function displayMovies(movies) {
     `).join("");
 }
 
-
+const moviesLink = document.querySelector('a[href="#recent-movies"]');
 moviesLink.addEventListener("click", (e) => {
     e.preventDefault();
     filterType = filterType === "movie" ? "" : "movie";
