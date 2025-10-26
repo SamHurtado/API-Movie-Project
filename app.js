@@ -21,7 +21,7 @@ hamMenu.addEventListener('click', () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const burgerMenu = document.querySelector(".hamburger-menu");
-    const navLinks = document.querySelector(".projected-links");
+    const navLinks = document.querySelector(".off-menu");
 
     burgerMenu.addEventListener("click", (e) => {
         e.stopPropagation();
