@@ -193,7 +193,6 @@ function displayMovies(movies) {
 
 const moviesLink = document.querySelector('a[href="#recent-movies"]');
 moviesLink.addEventListener("click", (e) => {
-    e.preventDefault();
     filterType = filterType === "movie" ? "" : "movie";
     moviesLink.classList.toggle("active");
     const query = searchInput.value.trim() || "a";
