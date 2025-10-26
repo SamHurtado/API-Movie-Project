@@ -14,31 +14,33 @@ let scrollPosition = 0;
 const hamMenu = document.querySelector('.hamburger-menu');
 const offScreenMenu = document.querySelector('.off-screen-menu');
 
-hamMenu.addEventListener('click', () => {
-    hamMenu.classList.toggle('active');
-    offScreenMenu.classList.toggle('active');
-})
-
 document.addEventListener("DOMContentLoaded", () => {
     const burgerMenu = document.querySelector(".hamburger-menu");
-    const navLinks = document.querySelector(".off-menu");
+    const offScreenMenu = document.querySelector(".off-screen-menu");
 
+    if (!burgerMenu || !offScreenMenu) return;
+
+    // Toggle the menu open/close
     burgerMenu.addEventListener("click", (e) => {
-        e.stopPropagation();
-        navLinks.classList.toggle("show");
+        e.stopPropagation(); // Prevents closing immediately when clicking the button
+        burgerMenu.classList.toggle("active");
+        offScreenMenu.classList.toggle("active");
     });
 
-    navLinks.querySelectorAll("a").forEach((link) => {
+    // Close the menu when a link inside it is clicked
+    offScreenMenu.querySelectorAll("a").forEach(link => {
         link.addEventListener("click", () => {
-            navLinks.classList.remove("show");
+            burgerMenu.classList.remove("active");
+            offScreenMenu.classList.remove("active");
         });
     });
 
+    // Close the menu when clicking outside
     document.addEventListener("click", (e) => {
-        if (!navLinks.contains(e.target) && !burgerMenu.contains(e.target)) {
-            navLinks.classList.remove("show");
+        if (!offScreenMenu.contains(e.target) && !burgerMenu.contains(e.target)) {
+            burgerMenu.classList.remove("active");
+            offScreenMenu.classList.remove("active");
         }
-        console.log(burgerMenu)
     });
 });
 
